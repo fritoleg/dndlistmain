@@ -58,7 +58,7 @@
     <textarea id="textarea7" class="d10a1"></textarea>
 </div>
 <div class="d11">
-    <label class="d11a2"><Strong>Инвентарь</Strong></label>
+    <label><strong>Инвентарь персонажа</strong></label>
     <textarea id="textarea2" class="d11a1"></textarea>
 </div>
 <div class="d12">
@@ -66,8 +66,7 @@
         </div>
         <div class="d12a3">
             <div class="d12a2">
-                <label"><h2>П.В.</h2></label>
-                <input type="number" id="number39" class="d12a4">
+
             </div>
         </div>
 </div>
@@ -306,43 +305,52 @@
     <label><strong>Доп. текстовое поле</strong></label>
     <textarea id="textarea9" class="d19a1"></textarea>
 </div>
-
-    <div class="container">
-        <div class="dice-option">
-            <label>d4</label>
-            <input type="number" id="countD4" value="0" min="0">
+<div class="d20">
+    <div class="d20a1">
         </div>
-        <div class="dice-option">
-            <label>d6</label>
-            <input type="number" id="countD6" value="0" min="0">
+        <div class="d20a3">
+            <div class="d20a2">
+                <label><strong>П.В.</strong></label>
+                <input type="number" min="0" id="number70" class="">
+            </div>
         </div>
-        <div class="dice-option">
-            <label>d8</label>
-            <input type="number" id="countD8" value="0" min="0">
-        </div>
-        <div class="dice-option">
-            <label>d10</label>
-            <input type="number" id="countD10" value="0" min="0">
-        </div>
-        <div class="dice-option">
-            <label>d12</label>
-            <input type="number" id="countD12" value="0" min="0">
-        </div>
-        <div class="dice-option">
-            <label>d20</label>
-            <input type="number" id="countD20" value="1" min="0">
-        </div>
-            <div class="dice-option">
-            <label>d100</label>
-            <input type="number" id="countD100" value="0" min="0">
-        </div>
-        <div class="modifier">
-            <label>Модификатор</label>
-            <input type="number" id="modifier" value="0">
-        </div>
-        <button onclick="rollDice()">Бросить кости!</button>
-        <div id="result"></div>
+</div>
+<div class="d21">
+    <div class="dice-option">
+        <label>d4</label>
+        <input type="number" id="countD4" value="0" min="0">
     </div>
+    <div class="dice-option">
+        <label>d6</label>
+        <input type="number" id="countD6" value="0" min="0">
+    </div>
+    <div class="dice-option">
+        <label>d8</label>
+        <input type="number" id="countD8" value="0" min="0">
+    </div>
+    <div class="dice-option">
+        <label>d10</label>
+        <input type="number" id="countD10" value="0" min="0">
+    </div>
+    <div class="dice-option">
+        <label>d12</label>
+        <input type="number" id="countD12" value="0" min="0">
+    </div>
+    <div class="dice-option">
+        <label>d20</label>
+        <input type="number" id="countD20" value="1" min="0">
+    </div>
+        <div class="dice-option">
+        <label>d100</label>
+        <input type="number" id="countD100" value="0" min="0">
+    </div>
+    <div class="modifier">
+        <label>Модификатор</label>
+        <input type="number" id="modifier" value="0">
+    </div>
+    <button onclick="rollDice()">Бросить кости!</button>
+    <div id="result"></div>
+</div>
 
 </main>
 <script src="dndlist.js/js1.js"></script>
