@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dndlist</title>
+    <link rel="stylesheet" href="/dndlistcss.css">
+</head>
+<body>
+<main>
+<div class="d1">
+        <label><strong>Имя персонажа</strong></label>
+        <textarea name="Имя персонажа" id="textarea1" input="3" class="d2"></textarea>
+</div>
+<div class="d3">
+        <div>
+            <label>Максимум Хп</label>
+            <input type="number" id="number100" class="d3a1">
+        </div>
+        <div>
+            <label>Текущие Хп</label>
+            <input type="number" id="d1" class="d3a2">
+        </div>
+    <div class="input-row">
+        <div>
+            <label>Сколько нанесли</label>
+            <input type="number" id="d2" class="d3a3">
+        </div>
+        <div>
+            <label>Сколько вылечил</label>
+            <input type="number" id="d5" class="d3a4">
+        </div>
+    </div>
+    <div class="button-row">
+        <button onclick="dndlist()" id="d3" class="d3a5">Расчет урона</button>
+        <button onclick="hp()" id="d6" class="d3a7">Расчет Лечения</button>
+    </div>
+    <div class="resistance-button">
+        <button onclick="tog()" id="d4" class="d3a6">Сопротивление Выкл</button>
+    </div>
+</div>
+<div class="d6">
+    <div class=".d6a1">
+        <label><Strong>К.Д.</Strong></label>
+        <input type="number" max="99" min="0" id="number51" class="d6a4">
+        </div>
+    <div class=".d6a2">
+        <label><strong>Инециатива</strong></label>
+        <input type="number" max="99" min="0" id="number50" class="d6a4">
+    </div>
+    <div class=".d6a3">
+        <label><strong>Скорость</strong></label>
+        <input type="number" step="5" max="99" min="0" id="number38" class="d6a4">
+    </div>
+</div>
+<div class="d10">
+    <label><strong>Прочие умения и языки</strong></label>
+    <textarea id="textarea7" class="d10a1"></textarea>
+</div>
+<div class="d11">
+    <label class="d11a2"><Strong>Инвентарь</Strong></label>
+    <textarea id="textarea2" class="d11a1"></textarea>
+</div>
+<div class="d12">
+    <div class="d12a1">
+        </div>
+        <div class="d12a3">
+            <div class="d12a2">
+                <label"><h2>П.В.</h2></label>
+                <input type="number" id="number39" class="d12a4">
+            </div>
+        </div>
+</div>
+<div class="d13">
+        <h1 class="d13h1"></h1>
+    <div class="d13a1">
+        <label class="d13a4">Сила</label>
+        <input type="number" min="1" max="28" value="10" class=".d13a3" id="number3" onchange="updateModifier(this)">
+        <span class="d13a2">0</span>
+    </div>
+    <div class="d13a1">
+        <label class="d13a4">Ловкость</label>
+        <input type="number" min="1" max="28" value="10" class=".d13a3" id="number4" onchange="updateModifier(this)">
+        <span class="d13a2">0</span>
+    </div>
+    <div class="d13a1">
+        <label class="d13a4">Телосложение</label>
+        <input type="number" min="1" max="28" value="10" class=".d13a3" id="number5" onchange="updateModifier(this)">
+        <span class="d13a2">0</span>
+    </div>
+    <div class="d13a1">
+        <label class="d13a4">Интеллект</label>
+        <input type="number" min="1" max="28" value="10" class=".d13a3" id="number6" onchange="updateModifier(this)">
+        <span class="d13a2">0</span>
+    </div>
+    <div class="d13a1">
+        <label class="d13a4">Мудрость</label>
+        <input type="number" min="1" max="28" value="10" class=".d13a3" id="number7" onchange="updateModifier(this)">
+        <span class="d13a2">0</span>
+    </div>
+    <div class="d13a1">
+        <label class="d13a4">Харизма</label>
+        <input type="number" min="1" max="28" value="10" class=".d13a3" id="number8" onchange="updateModifier(this)">
+        <span class="d13a2">0</span>
+    </div>
+</div>
+<div class="d14">
+    <div class="d14a1">
+        <div class="d14a3">
+            <h2>Сила</h2>
+            <div class="d14a2">
+                <label>Атлетика</label>
+                <input type="number" id="number9">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+        </div>
+        <div class="d14a3">
+            <h2>Ловкость</h2>
+            <div class="d14a2">
+                <label>Акробатика</label>
+                <input type="number" id="number10">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Скрытность</label>
+                <input type="number" id="number11">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Ловкость рук</label>
+                <input type="number" id="number12">
+                <div class="toggle-btn" data-state="0"></div>
+        </div>
+        </div>
+            <div class="d14a3">
+            <h2>Интеллект</h2>
+            <div class="d14a2">
+                <label>Анализ</label>
+                <input type="number" id="number13">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>История</label>
+                <input type="number" id="number14">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Магия</label>
+                <input type="number" id="number15">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Природа</label>
+                <input type="number" id="number16">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Религия</label>
+                <input type="number" id="number17">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+        </div>
+        <div class="d14a3">
+            <h2>Мудрость</h2>
+            <div class="d14a2">
+                <label>Внимательность</label>
+                <input type="number" id="number18">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Выживание</label>
+                <input type="number" id="number19">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Забота о животных</label>
+                <input type="number" id="number20">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Медицина</label>
+                <input type="number" id="number21">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Восприятие</label>
+                <input type="number" id="number22">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+        </div>
+        <div class="d14a3">
+            <h2>Харизма</h2>
+            <div class="d14a2">
+                <label>Выступление</label>
+                <input type="number" id="number23">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Запугивание</label>
+                <input type="number" id="number24">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Обман</label>
+                <input type="number" id="number25">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            <div class="d14a2">
+                <label>Убеждение</label>
+                <input type="number" id="number26">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d15">
+    <div class="d15a1">
+        <div class="d15a3">
+            <h4>Спасброски</h4>
+            <div class="d15a2">
+                <label><strong>Сила</strong></label>
+                <input type="number" id="number27">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            
+            <div class="d15a2">
+                <label><strong>Ловкость</strong></label>
+                <input type="number" id="number28">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            
+            <div class="d15a2">
+                <label><strong>Телосложение</strong></label>
+                <input type="number" id="number29">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            
+            <div class="d15a2">
+                <label><strong>Интеллект</strong></label>
+                <input type="number" id="number30">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            
+            <div class="d15a2">
+                <label><strong>Мудрость</strong></label>
+                <input type="number" id="number31">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+            
+            <div class="d15a2">
+                <label><strong>Харизма</strong></label>
+                <input type="number" id="number32">
+                <div class="toggle-btn" data-state="0"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="d16">
+    <div class="d16a1">
+        </div>
+        <div class="d16a3">
+            <div class="d16a2">
+                <label><strong>Бонус мастерства</strong></label>
+                <input type="number" id="number34" class="d1617a1">
+            </div>
+        </div>
+</div>
+<div class="d17">
+    <div class="d17a1">
+        </div>
+        <div class="d17a3">
+            <div class="d17a2">
+                <label><strong>Вдохновение</strong></label>
+                <input type="number" min="0" id="number35" class="d1617a1">
+            </div>
+        </div>
+</div>
+<div class="d18">
+    <h4>Голда</h4>
+    <div class="d18a1">
+        <div class="d18a2">
+            <label><strong>Платина</strong></label>
+            <input type="number" id="number40">
+        </div>
+    </div>
+    <div class="d18a1">
+        <div class="d18a2">
+            <label><strong>Золото</strong></label>
+            <input type="number" id="number41">
+        </div>
+    </div>
+    <div class="d18a1">
+        <div class="d18a2"> 
+            <label><strong>Серебро</strong></label>
+            <input type="number" id="number42">
+        </div>
+    </div>
+    <div class="d18a1"> 
+        <div class="d18a2">       
+            <label><strong>Медь</strong></label>
+            <input type="number" id="number43">
+        </div>
+    </div>
+</div>
+<div class="d19">
+    <label><strong>Доп. текстовое поле</strong></label>
+    <textarea id="textarea9" class="d19a1"></textarea>
+</div>
+
+    <div class="container">
+        <div class="dice-option">
+            <label>d4</label>
+            <input type="number" id="countD4" value="0" min="0">
+        </div>
+        <div class="dice-option">
+            <label>d6</label>
+            <input type="number" id="countD6" value="0" min="0">
+        </div>
+        <div class="dice-option">
+            <label>d8</label>
+            <input type="number" id="countD8" value="0" min="0">
+        </div>
+        <div class="dice-option">
+            <label>d10</label>
+            <input type="number" id="countD10" value="0" min="0">
+        </div>
+        <div class="dice-option">
+            <label>d12</label>
+            <input type="number" id="countD12" value="0" min="0">
+        </div>
+        <div class="dice-option">
+            <label>d20</label>
+            <input type="number" id="countD20" value="1" min="0">
+        </div>
+            <div class="dice-option">
+            <label>d100</label>
+            <input type="number" id="countD100" value="0" min="0">
+        </div>
+        <div class="modifier">
+            <label>Модификатор</label>
+            <input type="number" id="modifier" value="0">
+        </div>
+        <button onclick="rollDice()">Бросить кости!</button>
+        <div id="result"></div>
+    </div>
+
+</main>
+<script src="dndlist.js/js1.js"></script>
+<script src="dndlist.js/js2.js"></script>
+<script src="dndlist.js/js3.js"></script> 
+<script src="dndlist.js/js4.js"></script>
+<script src="dndlist.js/js5.js"></script>
+<script src="dndlist.js/js6.js"></script>
+<script src="dndlist.js/js7.js"></script>
+<script src="dndlist.js/js8.js"></script>
+<script src="dndlist.js/js9.js"></script>
+</body>
+</html>
